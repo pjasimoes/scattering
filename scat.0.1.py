@@ -293,14 +293,14 @@ class anime:
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d","--density", help="number of particles",type=int)
-    parser.add_argument("-c","--choice", help="Scattering process",type=int)
-    parser.add_argument("-s","--scale", help="scale factor for the cross-section radius",type=float)
-    parser.add_argument("-l","--length", help="length of the scattering region (0 < L < 1)",type=float)
-    parser.add_argument("-t","--time", help="time duration of the animation, in seconds",type=float)
-    parser.add_argument("-p","--psize", help="scale factor for display photon size",type=float)
+    parser.add_argument("-d","--density", help="number of particles (default=400)",type=int)
+    parser.add_argument("-c","--choice", help="Scattering process: CHOICE = 0 Resonant, CHOICE = 1 Rayleight, CHOICE = 2 Thomson (default: 0)",type=int)
+    parser.add_argument("-s","--scale", help="scale factor for the cross-section radius (default=1)",type=float)
+    parser.add_argument("-l","--length", help="length of the scattering region (0 < L < 1) (default=0.7)",type=float)
+    parser.add_argument("-t","--time", help="time duration of the animation, in seconds (default=16)",type=float)
+    parser.add_argument("-p","--psize", help="scale factor for display photon size (default=1)",type=float)
     parser.add_argument("-v","--video", help="set filename of mp4 video")
-    parser.add_argument("-r","--rate", help="rate of new photons per frame",type=int)
+    parser.add_argument("-r","--rate", help="rate of new photons per frame (default=5)",type=int)
 
     parser.parse_args()
     args = parser.parse_args()
