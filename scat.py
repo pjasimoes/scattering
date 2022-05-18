@@ -9,6 +9,9 @@ Version 0.2: Python 3 version, fixed get_colormap() indexing
 P. Simoes, 18 May 2022
 paulo@craam.mackenzie.br
 
+Many thanks to Jake Vanderplas for his animation tutorial
+https://github.com/jakevdp
+
 TO DO: 
 - check args for valid inputs
 - add absorption?
