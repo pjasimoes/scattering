@@ -4,14 +4,17 @@ scattering processes. Note: this is not a simulation code!
 
 Version 0.1: written.
 P. Simoes, 14 Feb 2018
-paulo.simoes@glasgow.ac.uk
+Version 0.2: Python 3 version, fixed get_colormap() indexing
+P. Simoes, 18 May 2022
+paulo@craam.mackenzie.br
 
-Written in Python 2. Requires matplotlib, scipy, numpy.
+Written in Python. 
+Requires matplotlib, scipy, numpy.
 
 Call it via terminal:
-python scat.0.1.py
+python scat.py
 
-usage: scat.0.1.py [-h] [-d DENSITY] [-c CHOICE] [-s SCALE] [-l LENGTH]
+usage: scat.py [-h] [-d DENSITY] [-c CHOICE] [-s SCALE] [-l LENGTH]
                    [-t TIME] [-p PSIZE] [-v VIDEO] [-r RATE]
 
 optional arguments:
