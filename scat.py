@@ -5,7 +5,9 @@ scattering processes. Note: this is not a simulation code!
 
 Version 0.1: written.
 P. Simoes, 14 Feb 2018
-paulo.simoes@glasgow.ac.uk
+Version 0.2: Python 3 version, fixed get_colormap() indexing
+P. Simoes, 18 May 2022
+paulo@craam.mackenzie.br
 
 TO DO: 
 - check args for valid inputs
@@ -22,10 +24,10 @@ from numpy import sin, cos
 from scipy.spatial.distance import cdist
 import matplotlib.gridspec as gridspec
 
-from matplotlib.patches import Circle
-from matplotlib.collections import PatchCollection
+# from matplotlib.patches import Circle
+# from matplotlib.collections import PatchCollection
 
-import sys
+# import sys
 import argparse
 
 class anime:
@@ -131,7 +133,7 @@ class anime:
         self.scat = self.axm.scatter(self.data[:,0],self.data[:,1]
             ,c=self.color,s=int(ms),edgecolors='None')
 
-        patches = []
+        # patches = []
         for i in range(0,self.npart):
             circle = plt.Circle(self.part[i,:],self.cross_section,color='k',fill=False,clip_on=False)
             self.axm.add_artist(circle)
@@ -146,9 +148,10 @@ class anime:
     def get_colormap(self):
         colors = np.ones((self.nwav,4))
         tables = ('Reds','Greens','Blues')
-        for i in range(0,3):
+        for i in range(len(tables)):
             mymap = plt.get_cmap(tables[i])
-            colors[i*self.nwav/3:i*self.nwav/3+self.nwav/3,:] = mymap(np.linspace(0.5, 1.0, self.nwav/3))
+            # used int() in self.nwav/3; nwav=15, so things work fine
+            colors[i*int(self.nwav/3):i*int(self.nwav/3)+int(self.nwav/3),:] = mymap(np.linspace(0.5, 1.0, int(self.nwav/3)))
         return colors
 
     def getalive(self):
@@ -349,5 +352,3 @@ def main():
 if __name__ == '__main__':
 
     main()
-
-    
